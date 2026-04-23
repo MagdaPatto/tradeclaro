@@ -77,7 +77,7 @@ Los proximos_eventos deben incluir entre 3 y 5 eventos reales programados para l
 
   try {
     const r = await groqCall(apiKey, prompt, 1500);
-    if(!r.ok){const t=await r.text();return res.status(r.status).json({error:`Groq ${r.status}: ${t.slice(0,150)}`);}
+    if(!r.ok){const t=await r.text();return res.status(r.status).json({error:`Groq ${r.status}: ${t.slice(0,150)}`});}
     const d = await r.json();
     const raw = d.choices?.[0]?.message?.content||'';
     const si=raw.indexOf('{'),ei=raw.lastIndexOf('}');
@@ -134,7 +134,7 @@ Hablas con alguien de 2 meses operando. Tu análisis debe hacerle sentir que tie
 
   try {
     const r = await groqCall(apiKey, prompt, 2000);
-    if(!r.ok){const t=await r.text();return res.status(r.status).json({error:`Groq ${r.status}: ${t.slice(0,150)}`);}
+    if(!r.ok){const t=await r.text();return res.status(r.status).json({error:`Groq ${r.status}: ${t.slice(0,150)}`});}
     const d = await r.json();
     const raw = d.choices?.[0]?.message?.content||'';
     if(!raw) throw new Error('Respuesta vacía');
